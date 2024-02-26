@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX</title>
+  </head>
+  <body>
+    <h1>HTMX</h1>
+    <div hx-get="https://jsonplaceholder.typicode.com/posts/1">Hello</div>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+    <h2>GET SAMPLE</h2>
+    <button hx-get="https://jsonplaceholder.typicode.com/posts/1">Click</button>
+
+    <h2>POST SAMPLE</h2>
+    <button hx-post="https://jsonplaceholder.typicode.com/posts">Click</button>
+
+    <h2>PUT SAMPLE</h2>
+    <button hx-put="https://jsonplaceholder.typicode.com/posts/1">Click</button>
+
+    <h2>PATCH SAMPLE</h2>
+    <button hx-patch="https://jsonplaceholder.typicode.com/posts/1">
+      Click
+    </button>
+
+    <h2>DELETE SAMPLE</h2>
+    <button hx-delete="https://jsonplaceholder.typicode.com/posts/1">
+      Click
+    </button>
+
+    <div>
+        <button hx-get="https://jsonplaceholder.typicode.com/posts/1" hx-target="#tar" hx-trigger="click">
+          クリック
+        </button>
+        <span id="tar"></span>
+    </div>
+
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <h1>Target Sample</h1>
+    <h2>シンプルな例</h2>
+    <p id="target1">クリックしたらここが変わるよ</p>
+    <button
+      hx-get="https://jsonplaceholder.typicode.com/posts/1"
+      hx-target="#target1"
+      hx-trigger="click"
+    >
+      クリック
+    </button>
+
+    <h2>this</h2>
+    <p id="target2">クリックしたらボタンが変わるよ</p>
+    <button
+      hx-get="https://jsonplaceholder.typicode.com/posts/1"
+      hx-target="this"
+      hx-trigger="click"
+    >
+      クリック
+    </button>
+
+    <h2>Closest CSSセレクタ</h2>
+    <div>
+      <p>hoge</p>
+      <div>
+        <p>クリックしたらこことボタンが変わるよ</p>
+        <button
+          hx-get="https://jsonplaceholder.typicode.com/posts/1"
+          hx-target="closest div"
+          hx-trigger="click"
+        >
+          クリック
+        </button>
+      </div>
+    </div>
+
+    <h2>Find CSSセレクタ</h2>
+    <p id="target">hoge</p>
+    <button
+      hx-get="https://jsonplaceholder.typicode.com/posts/1"
+      hx-target="find p"
+      hx-trigger="click"
+    >
+      <p>ここが変わるよ</p>
+      クリック
+    </button>
+
+    <h2>Previous CSSセレクタ</h2>
+    <p id="target1">クリックしたらここが変わるよ</p>
+    <p id="target2">hoge</p>
+
+    <button
+      hx-get="https://jsonplaceholder.typicode.com/posts/1"
+      hx-target="previous #target1"
+      hx-trigger="click"
+    >
+      クリック
+    </button>
+    <p id="target3">fuga</p>
+
+    <h2>Next CSSセレクタ</h2>
+    <p id="target4">hoge</p>
+    <p id="target5">fuga</p>
+    <button
+      hx-get="https://jsonplaceholder.typicode.com/posts/1"
+      hx-target="next #target7"
+      hx-trigger="click"
+    >
+      クリック
+    </button>
+    <p id="target6">foo</p>
+    <p id="target7">クリックしたらここが変わるよ</p>
+
+    <h2>trigger</h2>
+    <form hx-get="https://jsonplaceholder.typicode.com/posts/1" hx-target="#target8" hx-trigger="submit">
+        <label for="name">name</label>
+        <input type="text" name="name">
+        <input type="submit">
+    </form>
+    <p id="target8"></p>
+  </body>
+  <script src="https://unpkg.com/htmx.org@1.9.10/dist/htmx.js"></script>
+</html>
